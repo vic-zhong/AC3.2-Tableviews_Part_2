@@ -1,7 +1,6 @@
 //
 //  MovieTableViewController.swift
-//  Tableviews_Part_1
-//
+//  Tableviews_Part_2//
 //  Created by Jason Gresh on 9/22/16.
 //  Copyright © 2016 C4Q. All rights reserved.
 //

@@ -1,7 +1,6 @@
 //
 //  Actor.swift
-//  Tableviews_Part_1
-//
+//  Tableviews_Part_2//
 //  Created by Louis Tur on 9/20/16.
 //  Copyright © 2016 C4Q. All rights reserved.
 //

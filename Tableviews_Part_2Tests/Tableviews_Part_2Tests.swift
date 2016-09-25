@@ -1,15 +1,14 @@
 //
-//  Tableviews_Part_1Tests.swift
-//  Tableviews_Part_1Tests
+//  Tableviews_Part_2Tests.swift
+//  Tableviews_Part_2Tests
 //
 //  Created by Louis Tur on 9/20/16.
 //  Copyright © 2016 C4Q. All rights reserved.
 //
 
 import XCTest
-@testable import Tableviews_Part_1
-
-class Tableviews_Part_1Tests: XCTestCase {
+@testable import Tableviews_Part_2
+class Tableviews_Part_2Tests: XCTestCase {
     var hungerGames: Movie!
     let validTestData: [[String : Any]] = [
         [
