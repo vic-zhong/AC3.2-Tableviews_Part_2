@@ -17,8 +17,9 @@ For the next [MVP](https://www.quora.com/What-is-a-minimum-viable-product/answer
 5. (Extra) The app should use Reel Good's brand font, [Roboto](https://fonts.google.com/specimen/Roboto). 
 
 After talking over the changes with Reel Good, you get together with your development team and discuss the engineering changes that you'll need to implement to acheive this new MVP goal.
+
 1. We're going to need a custom prototype `UITableviewCell` that will use `Autolayout` to expand to fit cover art and movie summary. 
-  1. This will be challenging because the cover art image size is not standardized and the summary text length varies!
+  1. This will be challenging because the cover art image size is not standardized and the summary text length varies
 2. We're going to have to come up with a way to easily reference and reuse Reel Good's icons and brand colors to save us some time and typing
 3. `UIButtonBarItem` will be used for adding an icon to the `UINavigationBar`
 4. If we have time to add in Reel Good's font, we'll need to understand how to add keys to our project's `Info.plist`
@@ -48,14 +49,18 @@ After talking over the changes with Reel Good, you get together with your develo
 
 Recall in the previous MVP, we had to make a few changes to the `UITableviewController` in storyboard befor being able to use it. For one, we changed it's type to `.subtitle`, which gave us a `.textLabel` and `.detailTextLabel` to use to put info in. If you read the [documentation](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/TableView_iPhone/TableViewCells/TableViewCells.html#//apple_ref/doc/uid/TP40007451-CH7) (scroll to **Figure 5-4** on the page) on table view cells, you'll see an example of what a cell in this style can look like. 
 
+![subtitleCell](http://i.imgur.com/jOPo7kIm.png)
+
 But this is a little too limiting for us, and we're going to design our own cell such that we follow Apples standards for design (explained well in [design+code](https://designcode.io/iosdesign-guidelines)):
 
 1. There is a standard 8pt margin around all the elements in the cell
 2. The `Movie.title` text is 17pt, and the `.summary` text is 12pt
-3. The movie poster image is centered, the title is aligned to the top of the cell, and the description is just below that, with an 8pt margin
+3. The movie poster image is centered on the y-axis, the title is aligned to the top of the cell, and the description is just below that, with an 8pt margin
 
-When attempting to using self-sizing `UITableviewCells` there is are many critical things to remember, but the first:
-- ADD AND ALIGN YOUR VIEWS TO THE CELL's `.contentView` PROPERTY!!!
+![movieCellMockup](http://i.imgur.com/XzwaMEQ.png)
+
+When attempting to using self-sizing `UITableviewCells` there is are a few critical things to remember, but the first:
+- ADD AND ALIGN YOUR VIEWS TO THE CELL's `.contentView` PROPERTY!
 
 ---
 
