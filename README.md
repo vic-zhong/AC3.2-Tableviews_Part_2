@@ -73,24 +73,32 @@ When attempting to using self-sizing `UITableviewCells` there is are a few criti
 5. From the *Object Library*, drag over a `UIImageView` into the `contentView` of the cell
 6. Align the `UIImageView` to the left side of the cell, such that the alignment lines show up on the top, left, and bottom sides of the imageview. 
 7. Select the imageView, click on the *Align* button, and select "Vertically in Container" and switch "Update Frames" to "All Frames in Container" 
-  - This will ensure that the imageView will be aligned vertically in the content view (sets imageView.centerY `NSLayoutAttribute` to self.centerY)
+  - This will ensure that the imageView will be aligned vertically in the content view (sets imageView.centerY `NSLayoutAttribute` to contentView.centerY)
   - Changing the "Update Frames" option makes sure that the storyboard updates the UI to match these changes. If you don't do this, you could have the proper constraints in place, but Xcode will warn you that the constraints you've applied don't match what's being seen in storyboard.
-8. Next, with the imageView still selected, click on the *Pin* button and add the following: (show image of screen shot)
-9. Its likely that the storyboard hasn't updated its views to match the constraints you've set, so you may need to click on *Resolve Autolayout Issues* and select "Update Frames". 
-  - what this does, it that Xcode will look at the constraints you've set and try to update the storyboard elements to match them. If you've done everything right up until this point, you should no longer see any warnings or errors in storyboard
-  - BEST ADVICE EVER --> Using the storyboard is going to be one of the most frustrating things you encounter in Xcode. I would highly, highly recommend that if you make an error somewhere along the line, to just select the problematic view, click on *Resolve Autolayout Issues* and select "Clear Constraints" and just start over. It's very, very difficult to resolve layout issues here when you have many existing (and potentially) conflicting constraints in place. Once you've become a little experienced with it, you can try to resolve them on your own. But for now, save yourself the drama that is Xcode Storyboards. 
-10. Now, add a UILabel with the following constraints: (show image)
+8. Next, with the imageView still selected, click on the *Pin* button and add the following:
+  - 8pt margin to top, left and bottom
+  - Width of 120, Height of 180
+  - ![Image View Constraints (Pin)](http://i.imgur.com/kkXu28e.png)
+9. Its possible that the storyboard hasn't updated its views to match the constraints you've set, so you may need to click on *Resolve Autolayout Issues* and select "Update Frames". 
+  - When selecting this, Xcode will look at the constraints you've set and try to update the storyboard elements to match their constraints. If you've done everything right up until this point, you should no longer see any warnings or errors in storyboard
+  - *Some Advice: Using the storyboard can be quite frustrationg at times. I would highly recommend that if you make an error somewhere along the line, to just select the problematic view, click on "Clear Constraints" and just start over. It's very difficult, especially when starting out, to resolve layout issues when you have many existing (and potentially) conflicting constraints in place. Once you've become a little experienced with it, you can try to resolve them on your own. But for now, you may find that just clearing the constraints is ultimately faster.*
+  - ![ImageView aligned in IB](http://i.imgur.com/hGQYUOWm.png)
+10. Now, add a `UILabel` to the right of the `UIImageView` with the following constraints:
+  - ![Movie Title Label Constraints](http://i.imgur.com/OuVP6udm.png)
   - 8pts from top, left, right
   - 17pt font
   - Left aligned
   - Name it: Movie Title Label
 11. Add a second UILabel below the first:
+  - ![Movie Summary Label Constraints](http://i.imgur.com/ShAqN2am.png)
   - 8pts from the top, left, right and bottom
-  - Number of line = 0
+  - Number of lines = 0
   - Justified alignment
   - Named: Movie Summary Label
   - 12pt font, Gray color (any)
 12. You may now notice an error about `verticalHuggingPriority` and `verticalCompressionResistence`... let's take a look at these two properties for a moment
+
+![CHCR Warnings](http://i.imgur.com/Y33xLMNm.png)
 
 #### Content Hugging/Compression Resistance ([CHCR](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithConstraintsinInterfaceBuidler.html#//apple_ref/doc/uid/TP40010853-CH10-SW2))
 These aren't the easiest concepts to understand, and I think in large part is due to their naming. But thanks to one very perfectly succint [StackOverflow answer](http://stackoverflow.com/a/16281229/3833368), it's a bit easier:
