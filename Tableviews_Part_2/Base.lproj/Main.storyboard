@@ -42,7 +42,7 @@
                                     <constraints>
                                         <constraint firstItem="90p-Ty-yn0" firstAttribute="top" secondItem="FS7-pK-VSu" secondAttribute="bottom" constant="8" id="3Fp-VO-d9N"/>
                                         <constraint firstItem="FS7-pK-VSu" firstAttribute="top" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="Ci2-mW-fWH"/>
-                                        <constraint firstItem="aMM-c5-abE" firstAttribute="top" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="Cqc-UM-5Ch"/>
+                                        <constraint firstItem="aMM-c5-abE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="Cqc-UM-5Ch"/>
                                         <constraint firstItem="90p-Ty-yn0" firstAttribute="leading" secondItem="aMM-c5-abE" secondAttribute="trailing" constant="8" id="K6G-59-n3T"/>
                                         <constraint firstItem="aMM-c5-abE" firstAttribute="centerY" secondItem="I3u-H0-aWI" secondAttribute="centerY" id="Wro-ro-Nad"/>
                                         <constraint firstAttribute="trailing" secondItem="FS7-pK-VSu" secondAttribute="trailing" constant="8" id="e7e-3U-TTV"/>
@@ -50,7 +50,7 @@
                                         <constraint firstItem="aMM-c5-abE" firstAttribute="leading" secondItem="I3u-H0-aWI" secondAttribute="leading" constant="8" id="iPh-vb-nBR"/>
                                         <constraint firstAttribute="bottom" secondItem="90p-Ty-yn0" secondAttribute="bottom" constant="8" id="r9l-Ri-V6N"/>
                                         <constraint firstItem="FS7-pK-VSu" firstAttribute="leading" secondItem="aMM-c5-abE" secondAttribute="trailing" constant="8" id="rH2-aE-K6Q"/>
-                                        <constraint firstAttribute="bottom" secondItem="aMM-c5-abE" secondAttribute="bottom" constant="8" id="tcN-mQ-FRI"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aMM-c5-abE" secondAttribute="bottom" constant="8" id="tcN-mQ-FRI"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
