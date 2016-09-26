@@ -281,9 +281,23 @@ Great work on this MVP, but now Reel Good is expecting a lot more out of the nex
 
 While Reel Good's Lead Designer loved that you were able to match their specs exactly, they're not entirely sure they love their original design and want you to make two more types of cells that they can test. They've sent over some screenshots of their design mock ups and have asked you to recreate: 
 
-(add screen shots of images)
+---
+
+### Alternative Version 1
+![Alt Version 1 Mock Up 1](http://i.imgur.com/XTnGrLu.png)
+![Alt Version 1 Portrait](http://i.imgur.com/AgvvzGl.png)
+![Alt Version 1 Landscape](http://i.imgur.com/uUV354P.png)
+---
+
+### Alternative Version 2
+![Alt Version 2 Mock Up](http://i.imgur.com/BZOfhzE.png)
+![Alt Version 2 Portrait](http://i.imgur.com/4CaspGo.png)
+![Alt Version 2 Landscape](http://i.imgur.com/GresiSK.png)
 
 What's worse, is that they expect ALL of these designs to look good in landscape and protrait, so you're going to need to make sure your constraints are very well engineered and that the app supports landscape (left and right) and portrait. 
 
+---
+
+(Extra credit)
 Our engineering team has decided that it would be best if the designers could see all three cell designs at once somehow... but they're leaving it up to you as to how to design the app to do this. Maybe three sections, each with a prototype cell? Or a function that changes cell type and reloads the table view? Or embedding a tabbar with three tabs, each with a different tableviewcontroller and cell type? Any way you deem fit, go that direction. 
 
