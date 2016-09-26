@@ -18,6 +18,7 @@
 		140665201D987AAE00363EE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1406651D1D987AAE00363EE8 /* Main.storyboard */; };
 		140665211D987AC900363EE8 /* Tableviews_Part_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406650A1D987A6900363EE8 /* Tableviews_Part_2Tests.swift */; };
 		140665221D987ACC00363EE8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 140665091D987A6900363EE8 /* Info.plist */; };
+		140665241D98AAE800363EE8 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140665231D98AAE800363EE8 /* MovieTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		140665191D987AA700363EE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Tableviews_Part_2/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		1406651C1D987AAE00363EE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Tableviews_Part_2/Base.lproj/LaunchScreen.storyboard; sourceTree = SOURCE_ROOT; };
 		1406651E1D987AAE00363EE8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Tableviews_Part_2/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		140665231D98AAE800363EE8 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieTableViewCell.swift; path = Tableviews_Part_2/Views/MovieTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		142842C91D920F3C007A1182 /* Tableviews_Part_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tableviews_Part_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		142842DD1D920F3C007A1182 /* Tableviews_Part_2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tableviews_Part_2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -64,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140665251D98AB0100363EE8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				140665231D98AAE800363EE8 /* MovieTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		142842C01D920F3C007A1182 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +99,7 @@
 			children = (
 				1406650D1D987A7A00363EE8 /* AppDelegate.swift */,
 				142842F01D920FCE007A1182 /* Models */,
+				140665251D98AB0100363EE8 /* Views */,
 				142842EF1D920FC1007A1182 /* View Controllers */,
 				142842EE1D920FBA007A1182 /* Supporting Files */,
 			);
@@ -242,6 +253,7 @@
 			files = (
 				140665141D987A8D00363EE8 /* Actor.swift in Sources */,
 				1406650F1D987A7A00363EE8 /* AppDelegate.swift in Sources */,
+				140665241D98AAE800363EE8 /* MovieTableViewCell.swift in Sources */,
 				140665181D987A9600363EE8 /* MovieTableViewController.swift in Sources */,
 				140665151D987A8D00363EE8 /* Data.swift in Sources */,
 				140665161D987A8D00363EE8 /* Movie.swift in Sources */,
