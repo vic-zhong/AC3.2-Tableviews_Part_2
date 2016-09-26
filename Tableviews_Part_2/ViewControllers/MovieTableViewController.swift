@@ -36,6 +36,23 @@ class MovieTableViewController: UITableViewController {
         movieData = movieContainer
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let menuBarButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "reel"),
+                                                             style: .plain,
+                                                             target: nil,
+                                                             action: nil)
+        self.navigationItem.setLeftBarButton(menuBarButton, animated: false)
+        
+        if let navigationController: UINavigationController = self.navigationController {
+            navigationController.navigationBar.tintColor = UIColor.white
+            navigationController.navigationBar.barTintColor = UIColor.reelGoodGreen
+            navigationController.navigationBar.titleTextAttributes = [
+                NSForegroundColorAttributeName : UIColor.white,
+                NSFontAttributeName : UIFont.systemFont(ofSize: 24.0)
+            ]
+        }
+    }
 
     // MARK: - Table view data source
 
