@@ -15,6 +15,7 @@ internal struct Movie {
     internal var cast: [Actor]
     internal var locations: [String]
     internal var summary: String
+    internal var poster: String
     
     init(from data: [String : Any]) {
         // 1. Start by getting our property values and casting them..
@@ -23,13 +24,15 @@ internal struct Movie {
             let movieYear: Int = data["year"] as? Int,
             let movieGenre: String = data["genre"] as? String,
             let movieLocations: [String] = data["locations"] as? [String],
-            let movieSynopsis: String = data["description"] as? String {
+            let movieSynopsis: String = data["description"] as? String,
+            let poster: String = data["poster"] as? String {
             
             self.title = movieTitle
             self.year = movieYear
             self.genre = movieGenre
             self.locations = movieLocations
             self.summary = movieSynopsis
+            self.poster = poster
             
             if let allActorNames: [String] = data["cast"] as? [String] {
                 var castContainer: [Actor] = []
@@ -58,5 +61,6 @@ internal struct Movie {
         self.cast = []
         self.locations = []
         self.summary = ""
+        self.poster = ""
     }
  }

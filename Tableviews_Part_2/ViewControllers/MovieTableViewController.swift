@@ -24,7 +24,8 @@ class MovieTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.title = "Movies"
-        self.tableView.backgroundColor = UIColor.blue
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 200.0
         
         // converting from array of dictionaries
         // to an array of Movie structs
@@ -51,11 +52,20 @@ class MovieTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         guard let genre = Genre.init(rawValue: indexPath.section),
             let data = byGenre(genre) else {
             return cell
         }
+        
+        if let movieCell: MovieTableViewCell = cell as? MovieTableViewCell {
+            movieCell.movieTitleLabel.text = data[indexPath.row].title
+            movieCell.movieSummaryLabel.text = data[indexPath.row].summary
+            movieCell.moviePosterImageView.image = UIImage(named: data[indexPath.row].poster)
+            return movieCell
+        }
+        
         cell.textLabel?.text = data[indexPath.row].title
         cell.detailTextLabel?.text = String(data[indexPath.row].year)
         
