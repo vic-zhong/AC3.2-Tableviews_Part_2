@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Data has been updated to include the "poster" key
 public var movies: [[String:Any]] = [
     [
         "name": "Minions",

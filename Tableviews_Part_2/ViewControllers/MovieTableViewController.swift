@@ -24,8 +24,7 @@ class MovieTableViewController: UITableViewController {
         super.viewDidLoad()
 
         self.title = "Movies"
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 200.0
+        // 1. need to update our table for self-sizing cells
         
         // converting from array of dictionaries
         // to an array of Movie structs
@@ -38,20 +37,11 @@ class MovieTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let menuBarButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "reel"),
-                                                             style: .plain,
-                                                             target: nil,
-                                                             action: nil)
-        self.navigationItem.setLeftBarButton(menuBarButton, animated: false)
         
-        if let navigationController: UINavigationController = self.navigationController {
-            navigationController.navigationBar.tintColor = UIColor.white
-            navigationController.navigationBar.barTintColor = UIColor.reelGoodGreen
-            navigationController.navigationBar.titleTextAttributes = [
-                NSForegroundColorAttributeName : UIColor.white,
-                NSFontAttributeName : ReelGoodFonts.ReelGoodNavBarFont!
-            ]
-        }
+        // 1. update our nav controller's tints and font
+        
+        // 2. add a new bar button
+        
     }
 
     // MARK: - Table view data source
@@ -76,12 +66,7 @@ class MovieTableViewController: UITableViewController {
             return cell
         }
         
-        if let movieCell: MovieTableViewCell = cell as? MovieTableViewCell {
-            movieCell.movieTitleLabel.text = data[indexPath.row].title
-            movieCell.movieSummaryLabel.text = data[indexPath.row].summary
-            movieCell.moviePosterImageView.image = UIImage(named: data[indexPath.row].poster)
-            return movieCell
-        }
+        // update to use a custom cell subclass
         
         cell.textLabel?.text = data[indexPath.row].title
         cell.detailTextLabel?.text = String(data[indexPath.row].year)

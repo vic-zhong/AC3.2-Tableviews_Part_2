@@ -5,14 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="Roboto-Light.ttf">
-            <string>Roboto-Light</string>
-        </array>
-        <array key="Roboto-Regular.ttf">
-            <string>Roboto-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Movie Table View Controller-->
         <scene sceneID="cyG-Yu-0vp">
@@ -23,49 +15,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="200" id="NQa-gd-usH" customClass="MovieTableViewCell" customModule="Tableviews_Part_2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="375" height="200"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" textLabel="puJ-wx-xmQ" detailTextLabel="FgW-Za-YEO" style="IBUITableViewCellStyleSubtitle" id="NQa-gd-usH">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NQa-gd-usH" id="I3u-H0-aWI">
-                                    <frame key="frameInset" width="375" height="199"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aMM-c5-abE">
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="180" id="Atd-XY-h5X"/>
-                                                <constraint firstAttribute="width" constant="120" id="MuT-mW-3fo"/>
-                                            </constraints>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FS7-pK-VSu" userLabel="Movie Title Label">
-                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="puJ-wx-xmQ">
+                                            <frame key="frameInset" minX="15" minY="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90p-Ty-yn0" userLabel="Movie Summary Label">
-                                            <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
-                                            <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FgW-Za-YEO">
+                                            <frame key="frameInset" minX="15" minY="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="90p-Ty-yn0" firstAttribute="top" secondItem="FS7-pK-VSu" secondAttribute="bottom" constant="8" id="3Fp-VO-d9N"/>
-                                        <constraint firstItem="FS7-pK-VSu" firstAttribute="top" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="Ci2-mW-fWH"/>
-                                        <constraint firstItem="aMM-c5-abE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="Cqc-UM-5Ch"/>
-                                        <constraint firstItem="90p-Ty-yn0" firstAttribute="leading" secondItem="aMM-c5-abE" secondAttribute="trailing" constant="8" id="K6G-59-n3T"/>
-                                        <constraint firstItem="aMM-c5-abE" firstAttribute="centerY" secondItem="I3u-H0-aWI" secondAttribute="centerY" id="Wro-ro-Nad"/>
-                                        <constraint firstAttribute="trailing" secondItem="FS7-pK-VSu" secondAttribute="trailing" constant="8" id="e7e-3U-TTV"/>
-                                        <constraint firstAttribute="trailing" secondItem="90p-Ty-yn0" secondAttribute="trailing" constant="8" id="hwy-kt-foJ"/>
-                                        <constraint firstItem="aMM-c5-abE" firstAttribute="leading" secondItem="I3u-H0-aWI" secondAttribute="leading" constant="8" id="iPh-vb-nBR"/>
-                                        <constraint firstAttribute="bottom" secondItem="90p-Ty-yn0" secondAttribute="bottom" constant="8" id="r9l-Ri-V6N"/>
-                                        <constraint firstItem="FS7-pK-VSu" firstAttribute="leading" secondItem="aMM-c5-abE" secondAttribute="trailing" constant="8" id="rH2-aE-K6Q"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="aMM-c5-abE" secondAttribute="bottom" constant="8" id="tcN-mQ-FRI"/>
-                                    </constraints>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="moviePosterImageView" destination="aMM-c5-abE" id="fLg-LD-a9Y"/>
-                                    <outlet property="movieSummaryLabel" destination="90p-Ty-yn0" id="kra-Rl-R96"/>
-                                    <outlet property="movieTitleLabel" destination="FS7-pK-VSu" id="x8I-uc-4Yv"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -84,7 +56,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KuV-Iy-6GA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1jd-vJ-snn">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1jd-vJ-snn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
