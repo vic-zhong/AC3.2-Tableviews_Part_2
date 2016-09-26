@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1406650F1D987A7A00363EE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406650D1D987A7A00363EE8 /* AppDelegate.swift */; };
-		140665101D987A7A00363EE8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1406650E1D987A7A00363EE8 /* Info.plist */; };
 		140665141D987A8D00363EE8 /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140665111D987A8D00363EE8 /* Actor.swift */; };
 		140665151D987A8D00363EE8 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140665121D987A8D00363EE8 /* Data.swift */; };
 		140665161D987A8D00363EE8 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140665131D987A8D00363EE8 /* Movie.swift */; };
@@ -17,7 +16,6 @@
 		1406651F1D987AAE00363EE8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1406651B1D987AAE00363EE8 /* LaunchScreen.storyboard */; };
 		140665201D987AAE00363EE8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1406651D1D987AAE00363EE8 /* Main.storyboard */; };
 		140665211D987AC900363EE8 /* Tableviews_Part_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406650A1D987A6900363EE8 /* Tableviews_Part_2Tests.swift */; };
-		140665221D987ACC00363EE8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 140665091D987A6900363EE8 /* Info.plist */; };
 		140665241D98AAE800363EE8 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140665231D98AAE800363EE8 /* MovieTableViewCell.swift */; };
 		1406655F1D98C10D00363EE8 /* ReelGoodFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1406655E1D98C10D00363EE8 /* ReelGoodFonts.swift */; };
 		140665641D98C1B100363EE8 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 140665601D98C1B100363EE8 /* Roboto-Black.ttf */; };
@@ -255,7 +253,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				140665101D987A7A00363EE8 /* Info.plist in Resources */,
 				140665201D987AAE00363EE8 /* Main.storyboard in Resources */,
 				140665671D98C1B100363EE8 /* Roboto-Regular.ttf in Resources */,
 				140665651D98C1B100363EE8 /* Roboto-Bold.ttf in Resources */,
@@ -270,7 +267,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				140665221D987ACC00363EE8 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
