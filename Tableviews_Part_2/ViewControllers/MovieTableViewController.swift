@@ -49,7 +49,7 @@ class MovieTableViewController: UITableViewController {
             navigationController.navigationBar.barTintColor = UIColor.reelGoodGreen
             navigationController.navigationBar.titleTextAttributes = [
                 NSForegroundColorAttributeName : UIColor.white,
-                NSFontAttributeName : UIFont.systemFont(ofSize: 24.0)
+                NSFontAttributeName : ReelGoodFonts.ReelGoodNavBarFont!
             ]
         }
     }
