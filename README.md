@@ -42,6 +42,7 @@ After talking over the changes with Reel Good, you get together with your develo
   4. [Working with Self-Sizing Table View Cells](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithSelf-SizingTableViewCells.html#//apple_ref/doc/uid/TP40010853-CH25-SW1)
 3. [Designing for iOS - Design+Code](https://designcode.io/iosdesign-guidelines)
 4. [Extensions - Apple](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html)
+5. (Extra) [Custom Fonts in Swift - GrokSwift](https://grokswift.com/custom-fonts/)
 
 ---
 
