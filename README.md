@@ -101,19 +101,72 @@ When attempting to using self-sizing `UITableviewCells` there is are a few criti
 ![CHCR Warnings](http://i.imgur.com/Y33xLMNm.png)
 
 #### Content Hugging/Compression Resistance ([CHCR](https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/WorkingwithConstraintsinInterfaceBuidler.html#//apple_ref/doc/uid/TP40010853-CH10-SW2))
-These aren't the easiest concepts to understand, and I think in large part is due to their naming. But thanks to one very perfectly succint [StackOverflow answer](http://stackoverflow.com/a/16281229/3833368), it's a bit easier:
+These aren't the easiest concepts to understand, and I think in large part is due to their naming. But thanks to one very perfectly succinct [StackOverflow answer](http://stackoverflow.com/a/16281229/3833368), it's a bit easier:
 
 - **Content Hugging**: How much content does not want to grow
 - **Compression Resistance**: How much content does not want to shrink
 
 Meaning: 
 - The higher the **Content Hugging** value, the more it will try to keep its size you set in IB. Think of it as how tightly the edges of a view are hugging what's inside the view (like how the edges of a `UILabel` are hugging the text inside of it).
-- The higher the **Compression Resistance** value, the more it will try to expand its you set in IB. A good example of something with compression resistance is a hand grip... todo: find a good example and fill this out with an image. i like the handgrip/hand idea because the hands can exert the hugging, and the grip exerts the compression resistance. id rather have an example that include a box and a balloon. Maybe one of those air-sealing things? if you air seal a brick, the brick has a greater compression resistance, but if placed in a pneumatic press, it losses out because of the press's greater hugging.. or something like that. 
+- The higher the **Compression Resistance** value, the more it will try to expand the bounds you set in IB. 
+
+*Note:* These values are set *relative* to the views that surround it. Meaning, these properties will only matter in cases where constraints do not define an exact width/height for a view, and rather, expect a view to expand/contract based on the sizes of the views around it. 
+
+#### Fixing the CHCR Errors
+In our case, we want the movie title `UILabel` to keep a consistent size, both in width and height. The movie summary `UILabel`, however, should expand vertically as much as needed to accomodate all of the movie's text. So conceptually, the *content hugging* of the movie title label's width and height should be high, but the *content compression resistance* of the movie summary label should be low (to let it grow) vertically. With this in mind, let's update our views... 
+
+*hint: You really only need to change one of the labels's content hugging for the errors to resolve*
+
+---
+### 3. Linking Storyboard Elements to a custom `UITableViewCell`
+With our prototype cell's constraints completed, now its necessary to link it up so our project uses the new prototype.
+
+1. Create a new `UITableViewCell` subclass by going to File > New > File... and selecting `Cocoa Touch Class`
+  - Have this subclass from `UITableViewCell` and name the new class `MovieTableViewCell`
+  - *If you'd like to be thorough: before saving, create a new Folder called "Views" to create the file in. Then right-click the `MovieTableViewCell.swift` file and select "New Group from Selection" and name the new group "Views"* 
+2. Open `Main.storyboard` selecting the prototype cell, and switch its class type to `MovieTableViewCell` in the "Identity Inspector" in the Utilities pane.
+3. However is most comfortable (typing and/or ctrl+dragging), add three `IBOutlet`s to `MovieTableViewCell` and make sure they are linked to your prototype cell. Name the elements `movieTitleLabel`, `movieSummaryLabel`, and `moviePosterImageView`
+
+```swift
+    @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var movieSummaryLabel: UILabel!
+    @IBOutlet weak var moviePosterImageView: UIImageView!
+```
+
+Next, we'll need to update our code in our `MovieTableViewController`'s `cellForRow` delegate function: 
+
+```swift
+  // just below our guard statement
+  if let movieCell: MovieTableViewCell = cell as? MovieTableViewCell {
+    movieCell.movieTitleLabel.text = data[indexPath.row].title
+    movieCell.movieSummaryLabel.text = data[indexPath.row].summary
+    movieCell.moviePosterImageView.image = UIImage(named: data[indexPath.row].poster)
+    return movieCell
+  }
+```
+
+Great! Now let's run and see our new cell in action
+
+Oh, something's wrong... remember before I mentioned that there are a few critial things you need to do in order to get self-sizing cells with autolayout? Well, constraining everything relative the the `contentView` is one, but there are two more: 
+
+1. You need to set the `tableView.rowHeight` property to `UITableViewAutomaticDimension`
+2. You need to set the `tableView.estimatedRowHeight` property to any value (but as close to actual size as possible)
+
+So add the following to `viewDidLoad`, just before we parse our `Movie` data objects
+
+```swift
+  self.tableView.rowHeight = UITableViewAutomaticDimension
+  self.tableView.estimatedRowHeight = 200.0     
+```
+And now re-run the project. Much better right?
+
+Depending on the iPhone model your simulation is running on, you probably notice a problem with the summary text: it's being cut off! While it's true that our summary text label will expand as needed for text, there are two constraints that are holding the cell at a specific height. See if you can figure out which two those are.
+*Hint/Reminder: The height of the cell is determined by a single, unbroken chain of constraints that describe the vertical relationships of the views. Think about what is giving our cell it's height (it's not those two tableview properties we just set, FYI)*
 
 ---
 
-### 3. Extensions and Navigation Item Style Changes
-In brief, an Extension allows you to give more functionality to an existing class without having to change that class's file. This is pretty useful if you want to add some new property or function to an existing class - even a built-in Apple class, or 3rd party library's class. A lot of times developers will extend an existing Foundation class to do some task that they need to do repeatedly in their app, but don't need to create an entire class to do.
+### 4. Extensions and Navigation Item Style Changes
+In brief, an Extension allows you to give more functionality to an existing class without having to change that class's file. This is pretty useful if you want to add some new property or function to an existing class - even a built-in Apple class, or a 3rd party library's. A lot of times developers will extend an existing Foundation class to do some task that they need to do repeatedly in their app, but don't need to create an entire class to do.
 
 For example, say we wanted to create a `UIView` with rounded corners and a green background. We could write this class:
 
@@ -147,13 +200,14 @@ For example, say we wanted to create a `UIView` with rounded corners and a green
   // creates a UIView with green background and rounded corners
   let greenView: UIView = UIView(frame: CGRect.zero).greenCorners()
   ```
-You save a little bit of code, but the potential savings isn't immediately obvious. Because `.greenCorners()` can be called on any existing `UIView`, if you have a project you've been working with for months, all you would need to do is add this function to the views you wanted to use this with without having to swap all instances of `UIView` with `GreenView`. 
+You save a little bit of code, but the potential savings isn't immediately obvious. Because `.greenCorners()` can be called on any existing `UIView`, if you have a project you've been working with for months, all you would need to do is append this function to the views you wanted to use this with without having to swap all instances of `UIView` with `GreenView`. 
 
 **But not only this!!** Since this function extends `UIView`, it's available to *all classes that subclass from UIView.* So if you had `UILabel`s, or `UIButton`s, etc.. that needed a green background and rounded corners, you could run this function on those as well!
 
 ```swift
   // creates a UILabel with green background and rounded corners
   let label: UILabel = UILabel().greenCorners()
+  
   // creates a UIButton with green background and rounded corners
   let button: UIButton = UIButton().greenCorners()
 ```
@@ -165,16 +219,17 @@ Since we know that Reel Good is going to want to use their official brand colors
 
 ```swift
   let reelGoodGreen: UIColor = UIColor(red: 109.0/255.0, green: 199.0/255.0, blue: 39.0/255.0, alpha: 1.0)
+  let reelGoodGray: UIColor = UIColor(red: 85.0/255.0, green: 85.0/255.0, blue: 85.0/255.0, alpha: 1.0)
 ```
 
-That is what the code looks like to define the exact color of green that appears in Reel Good's logo. Seems reasonable that we can just copy/past that line into each class we need, or put it someone once and give it the `open` access modifier to be available everywhere in our project. But, I'd like to be able to call this color in the same way that we can for some of `UIColor`'s standard available colors (`.purple`, `.red`, `.blue`, etc..). 
+That is what the code looks like to define the exact color of green and gray that appears in Reel Good's logo. Seems reasonable that we can just copy/past that line into each class we need, or put it someone once and give it the `open` access modifier to be available everywhere in our project. But, I'd like to be able to call this color in the same way that we can for some of `UIColor`'s standard available colors (`.purple`, `.red`, `.blue`, etc..). 
 
 So instead, let's create a `UIColor` extension with `static let`s for two new values, `reelGoodGreen` and `reelGoodGray`. 
 
 Note: If you're defining new constants for classes originally defined in Objective-C, you'll need to add the `@nonobjc` attribute as well.
 
 
-#### Changing `UINavigationBar` appearance 
+#### Changing the `UINavigationBar` appearance 
 Here are some guiding rules:
 1. To change the style of a `UINavigationController`, you will need to make changes to its `.navigationBar` property
 2. `.tintColor` is used to change the color of navbar icons and button text
@@ -183,9 +238,14 @@ Here are some guiding rules:
   - This property is a dictionary of key/value pairs that correspond to different attributes of the text ([see here for full list](https://developer.apple.com/reference/foundation/nsattributedstring/1652619-character_attributes)). The most common I use are: 
     - `NSForegroundColorAttributeName` : `UIColor` (corresponds to text color)
     - `NSFontAttributeName` : `UIFont` (corresponds to font style)
+    
+We're going to add the associated code to update the navBar inside of `UIViewController`'s `viewWillAppear` function, which is called just before the view controller's views are presented on screen. Often times you'll see small UI changes in this function, which is why we're adding the code here. 
+    
+#### Adding a `UIBarButtonItem` to the `UINavigationBar`
+This is fairly straightforward, with the trickiest part being sizing the image you're going to use to fit your navBar properly. In this case, the project includes an icon that's already sized at about 60pt for its @2x size. 
 
 ---
-### 4. (Extra) Adding Custom Fonts
+### 5. (Extra) Adding Custom Fonts
 
 To add your own set of fonts for an app, you'll need: 
 1. The actual font files (can be different file types, such as `.otf` and `.ttf`)
@@ -193,27 +253,30 @@ To add your own set of fonts for an app, you'll need:
 2. To add the `Fonts provided by application` key to your `.plist`
   3. To add the names of the fonts (manually) to this plist as well
   
-Now, you can test to make sure your app sees the font by add the following like to your `AppDelegate` didFinishLaunching function:
+Following the above steps, you can test to make sure your app sees the font by add the following line to your `AppDelegate` didFinishLaunching function:
+
 `print(UIFont.familyNames)`
-You should see `Roboto` listed in the console log
-Then if you wanted to see the styles you can use, use this line (after making sure Roboto exists):
+
+You should see `Roboto` among the fonts listed in the console log. Then if you wanted to see the styles you can use, use this line (after making sure `Roboto` exists):
+
 `print(UIFont.fontNames(forFamilyName: "Roboto"))`
+
 You will see `["Roboto-Light", "Roboto-Black", "Roboto-Bold", "Roboto-Regular"]` if all has been done properly. 
 
 Once you've validated your fonts, change your `NSFontAttribute` value from before, and update your storyboard's prototype `MovieTableViewCell` (use Roboto-Regular, 17pt for the title text and Roboto-Light, 12pt for the summary text)
 
 --- 
-### 5. Revealing the MVP to Reel Good
+### 6. Revealing the MVP to Reel Good
 "Stunning!" - Reel Good, CEO
 "... this app is becoming so beatiful..." - Reel Good, Lead Designer
 "How much is this costing us?" - Reel Good, CFO
 "The board will be thrilled" - Reel Good, Investor Relations
-"I don't really like it." - Reel Good, Crusty iOS Engineer
+"It's OK." - Reel Good, Crusty iOS Engineer
 
 Great work on this MVP, but now Reel Good is expecting a lot more out of the next iterration. They want a full screen detail view on the movie and some design tweaks. On top of this, your engineering team has decided that the code base needs some clean up before it gets to large! The next stage of this project will be even more challenging and there's no time to rest on laurels. 
 
 ---
-### 6. Exercises
+### 7. Exercises
 
 While Reel Good's Lead Designer loved that you were able to match their specs exactly, they're not entirely sure they love their original design and want you to make two more types of cells that they can test. They've sent over some screenshots of their design mock ups and have asked you to recreate: 
 
