@@ -162,7 +162,12 @@ So add the following to `viewDidLoad`, just before we parse our `Movie` data obj
 And now re-run the project. Much better right?
 
 Depending on the iPhone model your simulation is running on, you probably notice a problem with the summary text: it's being cut off! While it's true that our summary text label will expand as needed for text, there are two constraints that are holding the cell at a specific height. See if you can figure out which two those are.
+
+![Text cutting off](http://i.imgur.com/02ppw9Wm.png)
+
 *Hint/Reminder: The height of the cell is determined by a single, unbroken chain of constraints that describe the vertical relationships of the views. Think about what is giving our cell it's height (it's not those two tableview properties we just set, FYI)*
+
+![Text fix](http://i.imgur.com/DI6EKPYl.png)
 
 ---
 
@@ -248,11 +253,14 @@ This is fairly straightforward, with the trickiest part being sizing the image y
 ---
 ### 5. (Extra) Adding Custom Fonts
 
-To add your own set of fonts for an app, you'll need: 
+To add your own set of fonts for an app, you'll need:
+
 1. The actual font files (can be different file types, such as `.otf` and `.ttf`)
 2. To add the font files to your *application bundle*
 2. To add the `Fonts provided by application` key to your `.plist`
   3. To add the names of the fonts (manually) to this plist as well
+  
+![Font keys to Plist](http://i.imgur.com/IFnJPA4.png)
   
 Following the above steps, you can test to make sure your app sees the font by add the following line to your `AppDelegate` didFinishLaunching function:
 
@@ -268,11 +276,19 @@ Once you've validated your fonts, change your `NSFontAttribute` value from befor
 
 --- 
 ### 6. Revealing the MVP to Reel Good
+
+![final version app](http://i.imgur.com/YX84STdl.png)
+
 "Stunning!" - Reel Good, CEO
+
 "... this app is becoming so beatiful..." - Reel Good, Lead Designer
+
 "How much is this costing us?" - Reel Good, CFO
+
 "The board will be thrilled" - Reel Good, Investor Relations
+
 "It's OK." - Reel Good, Crusty iOS Engineer
+
 
 Great work on this MVP, but now Reel Good is expecting a lot more out of the next iterration. They want a full screen detail view on the movie and some design tweaks. On top of this, your engineering team has decided that the code base needs some clean up before it gets to large! The next stage of this project will be even more challenging and there's no time to rest on laurels. 
 
@@ -281,9 +297,9 @@ Great work on this MVP, but now Reel Good is expecting a lot more out of the nex
 
 While Reel Good's Lead Designer loved that you were able to match their specs exactly, they're not entirely sure they love their original design and want you to make two more types of cells that they can test. They've sent over some screenshots of their design mock ups and have asked you to recreate: 
 
----
 
-### Alternative Version 1
+
+#### Alternative Version 1
 ![Alt Version 1 Mock Up 1](http://i.imgur.com/XTnGrLu.png)
 ![Alt Version 1 Portrait](http://i.imgur.com/AgvvzGl.png)
 ![Alt Version 1 Landscape](http://i.imgur.com/uUV354P.png)
