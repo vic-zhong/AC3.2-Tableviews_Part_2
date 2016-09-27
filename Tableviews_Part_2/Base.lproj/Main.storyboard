@@ -45,10 +45,10 @@
                                         <constraint firstItem="iaD-ez-Axy" firstAttribute="centerY" secondItem="I3u-H0-aWI" secondAttribute="centerY" id="ALP-ze-1MQ"/>
                                         <constraint firstAttribute="trailing" secondItem="g8b-WV-VFM" secondAttribute="trailing" constant="8" id="MHw-GK-Ic2"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="QOs-Br-u4d" secondAttribute="trailing" constant="8" id="Qik-mM-8cO"/>
-                                        <constraint firstItem="iaD-ez-Axy" firstAttribute="top" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="dvw-vR-G77"/>
-                                        <constraint firstAttribute="bottomMargin" relation="lessThanOrEqual" secondItem="QOs-Br-u4d" secondAttribute="bottom" constant="8" id="ft5-aQ-Am8"/>
+                                        <constraint firstItem="iaD-ez-Axy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="dvw-vR-G77"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="QOs-Br-u4d" secondAttribute="bottom" constant="8" id="ft5-aQ-Am8"/>
                                         <constraint firstItem="QOs-Br-u4d" firstAttribute="top" secondItem="g8b-WV-VFM" secondAttribute="bottom" constant="8" id="n6g-Kr-qmK"/>
-                                        <constraint firstAttribute="bottom" secondItem="iaD-ez-Axy" secondAttribute="bottom" constant="8" id="nH9-TY-81n"/>
+                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iaD-ez-Axy" secondAttribute="bottom" constant="8" id="nH9-TY-81n"/>
                                         <constraint firstItem="g8b-WV-VFM" firstAttribute="leading" secondItem="iaD-ez-Axy" secondAttribute="trailing" constant="8" id="qee-Z3-BC8"/>
                                         <constraint firstItem="QOs-Br-u4d" firstAttribute="leading" secondItem="iaD-ez-Axy" secondAttribute="trailing" constant="8" id="qop-3g-eP4"/>
                                         <constraint firstItem="g8b-WV-VFM" firstAttribute="top" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="u1T-7j-rTc"/>
@@ -70,7 +70,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHw-bd-Gmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="744.5" y="63.5"/>
+            <point key="canvasLocation" x="744.79999999999995" y="64.31784107946028"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IjZ-c6-2Ma">
