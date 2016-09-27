@@ -16,9 +16,11 @@ class MovieTableViewController: UITableViewController {
 	}
 	
 	internal var movieData: [Movie]?
+	var whichCell = 0
 	
 	internal let rawMovieData: [[String : Any]] = movies
-	let cellIdentifier: String = "MovieTableViewCell"
+//	let cellIdentifier: String = "MovieTableViewCell"
+	let cellIdentifier: [String] = ["MovieTableViewCell", "MovieTableViewCell2", "MovieTableViewCell3"]
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -42,9 +44,18 @@ class MovieTableViewController: UITableViewController {
 		super.viewWillAppear(animated)
 		
 		// 1. update our nav controller's tints and font
+		if let navigationController: UINavigationController = self.navigationController {
+			navigationController.navigationBar.tintColor = .reelGoodGray
+			navigationController.navigationBar.barTintColor = .reelGoodGreen
+			navigationController.navigationBar.titleTextAttributes = [
+				NSForegroundColorAttributeName : UIColor.white,
+				NSFontAttributeName: UIFont.systemFont(ofSize: 24.0)
+			]
+		}
 		
 		// 2. add a new bar button
-		
+//		let menuBarButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "reel"), style: .plain, target: nil, action: nil)
+//		self.navigationItem.setLeftBarButton(menuBarButton, animated: false)
 	}
 	
 	// MARK: - Table view data source
@@ -63,7 +74,7 @@ class MovieTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier[whichCell], for: indexPath)
 		guard let genre = Genre.init(rawValue: indexPath.section),
 			let data = byGenre(genre) else {
 				return cell

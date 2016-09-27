@@ -19,22 +19,25 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="200" id="NQa-gd-usH" customClass="MovieTableViewCell" customModule="Tableviews_Part_2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="375" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NQa-gd-usH" id="I3u-H0-aWI">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="NQa-gd-usH" id="I3u-H0-aWI">
                                     <frame key="frameInset" width="375" height="199"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iaD-ez-Axy">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iaD-ez-Axy">
+                                            <frame key="frameInset" minX="8" minY="9" width="120" height="180"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="180" id="CN7-ok-T7l"/>
                                                 <constraint firstAttribute="width" constant="120" id="FhH-w3-mJD"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8b-WV-VFM" userLabel="Movie Title Label">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8b-WV-VFM" userLabel="Movie Title Label">
+                                            <frame key="frameInset" minX="136" minY="9" width="231" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOs-Br-u4d" userLabel="Movie Summary Label">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOs-Br-u4d" userLabel="Movie Summary Label">
+                                            <frame key="frameInset" minX="136" minY="38" width="223" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -42,13 +45,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="iaD-ez-Axy" firstAttribute="leading" secondItem="I3u-H0-aWI" secondAttribute="leading" constant="8" id="2LI-aq-Ejz"/>
-                                        <constraint firstItem="iaD-ez-Axy" firstAttribute="centerY" secondItem="I3u-H0-aWI" secondAttribute="centerY" id="ALP-ze-1MQ"/>
                                         <constraint firstAttribute="trailing" secondItem="g8b-WV-VFM" secondAttribute="trailing" constant="8" id="MHw-GK-Ic2"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="QOs-Br-u4d" secondAttribute="trailing" constant="8" id="Qik-mM-8cO"/>
-                                        <constraint firstItem="iaD-ez-Axy" firstAttribute="top" relation="greaterThanOrEqual" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="dvw-vR-G77"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="QOs-Br-u4d" secondAttribute="bottom" constant="8" id="ft5-aQ-Am8"/>
+                                        <constraint firstItem="iaD-ez-Axy" firstAttribute="top" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="dvw-vR-G77"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="QOs-Br-u4d" secondAttribute="bottom" constant="8" id="ft5-aQ-Am8"/>
                                         <constraint firstItem="QOs-Br-u4d" firstAttribute="top" secondItem="g8b-WV-VFM" secondAttribute="bottom" constant="8" id="n6g-Kr-qmK"/>
-                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iaD-ez-Axy" secondAttribute="bottom" constant="8" id="nH9-TY-81n"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="iaD-ez-Axy" secondAttribute="bottom" constant="8" id="nH9-TY-81n"/>
                                         <constraint firstItem="g8b-WV-VFM" firstAttribute="leading" secondItem="iaD-ez-Axy" secondAttribute="trailing" constant="8" id="qee-Z3-BC8"/>
                                         <constraint firstItem="QOs-Br-u4d" firstAttribute="leading" secondItem="iaD-ez-Axy" secondAttribute="trailing" constant="8" id="qop-3g-eP4"/>
                                         <constraint firstItem="g8b-WV-VFM" firstAttribute="top" secondItem="I3u-H0-aWI" secondAttribute="top" constant="8" id="u1T-7j-rTc"/>
@@ -60,13 +62,63 @@
                                     <outlet property="movieTitleLabel" destination="g8b-WV-VFM" id="EsG-st-7XN"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell2" rowHeight="200" id="3xH-HC-VRo" customClass="MovieTableViewCell" customModule="Tableviews_Part_2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="292" width="375" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="3xH-HC-VRo" id="tfu-aK-2r1">
+                                    <frame key="frameInset" width="375" height="199"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jgq-uf-QvR">
+                                            <frame key="frameInset" minX="8" minY="9" width="120" height="180"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="OgV-Ke-HYD"/>
+                                                <constraint firstAttribute="height" constant="180" id="fyp-p7-exM"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHA-1l-9kl" userLabel="Movie Title Label">
+                                            <frame key="frameInset" minX="136" minY="9" width="231" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" ambiguous="YES" misplaced="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Eq-2D-6Fp" userLabel="Movie Summary Label">
+                                            <frame key="frameInset" minX="136" minY="38" width="223" height="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jgq-uf-QvR" firstAttribute="leading" secondItem="tfu-aK-2r1" secondAttribute="leading" constant="8" id="8vK-3p-Stz"/>
+                                        <constraint firstItem="HHA-1l-9kl" firstAttribute="leading" secondItem="jgq-uf-QvR" secondAttribute="trailing" constant="8" id="ONz-J4-rKd"/>
+                                        <constraint firstItem="6Eq-2D-6Fp" firstAttribute="leading" secondItem="jgq-uf-QvR" secondAttribute="trailing" constant="8" id="gUU-ks-gOR"/>
+                                        <constraint firstAttribute="trailing" secondItem="HHA-1l-9kl" secondAttribute="trailing" constant="8" id="nRZ-1q-aA8"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="jgq-uf-QvR" secondAttribute="bottom" constant="8" id="nSF-Le-92g"/>
+                                        <constraint firstItem="6Eq-2D-6Fp" firstAttribute="top" secondItem="HHA-1l-9kl" secondAttribute="bottom" constant="8" id="qlm-DQ-Sxm"/>
+                                        <constraint firstItem="HHA-1l-9kl" firstAttribute="top" secondItem="tfu-aK-2r1" secondAttribute="top" constant="8" id="sfw-X0-zBk"/>
+                                        <constraint firstItem="jgq-uf-QvR" firstAttribute="top" secondItem="tfu-aK-2r1" secondAttribute="top" constant="8" id="wNe-y5-Zge"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="6Eq-2D-6Fp" secondAttribute="trailing" constant="8" id="yz8-Lp-J7N"/>
+                                        <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="6Eq-2D-6Fp" secondAttribute="bottom" constant="8" id="zFj-XX-EBK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="moviePosterImageView" destination="jgq-uf-QvR" id="Fo3-QB-cMY"/>
+                                    <outlet property="movieSummaryLabel" destination="6Eq-2D-6Fp" id="CJg-Cj-SLk"/>
+                                    <outlet property="movieTitleLabel" destination="HHA-1l-9kl" id="QbI-hv-FhZ"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="yet-gM-qc3" id="qY1-Uk-QcW"/>
                             <outlet property="delegate" destination="yet-gM-qc3" id="XBu-Bk-Pre"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="gWo-Yo-CxC"/>
+                    <navigationItem key="navigationItem" id="gWo-Yo-CxC">
+                        <barButtonItem key="leftBarButtonItem" image="reel" id="0E1-gA-QVD">
+                            <color key="tintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHw-bd-Gmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,4 +143,7 @@
             <point key="canvasLocation" x="-194.40000000000001" y="64.31784107946028"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="reel" width="30" height="30"/>
+    </resources>
 </document>
