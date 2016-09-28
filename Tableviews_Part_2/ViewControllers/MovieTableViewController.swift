@@ -16,17 +16,19 @@ class MovieTableViewController: UITableViewController {
 	}
 	
 	internal var movieData: [Movie]?
-	var whichCell = 0
+	var whichCell = 1
 	
 	internal let rawMovieData: [[String : Any]] = movies
 //	let cellIdentifier: String = "MovieTableViewCell"
 	let cellIdentifier: [String] = ["MovieTableViewCell", "MovieTableViewCell2", "MovieTableViewCell3"]
+
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
 		self.tableView.rowHeight = UITableViewAutomaticDimension
 		self.tableView.estimatedRowHeight = 200.0
+
 		
 		self.title = "Movies"
 		// 1. need to update our table for self-sizing cells
@@ -38,6 +40,15 @@ class MovieTableViewController: UITableViewController {
 			movieContainer.append(Movie(from: rawMovie))
 		}
 		movieData = movieContainer
+	}
+	
+	@IBAction func switchViewCell(_ sender: UIBarButtonItem) {
+		whichCell += 1
+		// add view refresh code here
+		
+		if whichCell >= 1 {
+			whichCell = 0
+		}
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +83,8 @@ class MovieTableViewController: UITableViewController {
 		return data.count
 	}
 	
+	
+	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier[whichCell], for: indexPath)
@@ -83,10 +96,16 @@ class MovieTableViewController: UITableViewController {
 		if let movieCell: MovieTableViewCell = cell as? MovieTableViewCell {
 			movieCell.movieTitleLabel.text = data[indexPath.row].title
 			movieCell.movieSummaryLabel.text = data[indexPath.row].summary
+			movieCell.movieSummaryLabel.textColor = UIColor.reelGoodGray
 			movieCell.moviePosterImageView.image = UIImage(named: data[indexPath.row].poster)
+			
+			// MARK: -- FIX THIS
+			if whichCell == 1 {
+				movieCell.movieYearLabel.text = String(data[indexPath.row].year)
+				movieCell.greenBar.backgroundColor = UIColor.reelGoodGreen
+			}
 			return movieCell
 		}
-		
 		
 		// update to use a custom cell subclass
 		
